@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Douglas Elliman</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" 
+    integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" 
+    crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" 
+    integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" 
+    crossorigin="anonymous"></script>
+    <style>
+        .card{
+            height: 575px;
+            width:300px;
+            align-items:center;
+            margin:10px;
+            border:none;
+            border-radius: 0px;
+            box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+            display:flex;
+            background:whitesmoke;
+            color:rgb(25,25,25,.8);
+            
+        }
+        .card:hover .details{
+            height:300px;
+            bottom:0px;       
+            color:white;
+
+        }
+        .card:hover img{
+            border-radius: 0px 0px 10px 10px;
+            transform:scale(.9) rotate(-3deg);
+            box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+            transition:.5s;
+        }
+        .card:hover{
+            opacity:1;
+            background:rgb(0,0,0,.2);   
+            transition:.5s;
+            cursor: pointer;
+        }
+        .card img{
+            height:350px;
+            width:300px;
+            overflow:hidden;
+        }
+        .name{
+            font-size:20px;
+            font-weight:bold;
+            font-family: Forum;
+            letter-spacing:2px;
+            height:2px;
+        }
+        .address{
+            color:rgb(24,24,24,.5);
+            font-size: 10px;
+            padding:3px;
+            padding-top:70px;
+        }
+        .phone{
+            padding-top:3px;
+            height:2px;
+            font-family:Bloomsburg;
+        }
+        .phone:hover{
+            text-decoration:underline;
+        }
+        .email{
+            padding-top:70px;
+            height:2px;
+            width:300px;
+            font-family:forum;
+            letter-spacing:1px;
+        }
+        .email:hover{
+            font-family:Bloomsburg;
+            text-decoration:underline;
+
+        }
+        .details{
+            padding:3px;
+            transition:.5s;
+            color:rgb(25,25,25,.7);
+        }
+        
+        .home{
+            padding-left:70px;
+        }
+        .adduser{
+            padding-left:40px;
+        }
+        button{
+            border:0px;
+            background-color: whitesmoke;
+            transition:.5s;
+            color:rgb(2,2,2,.7);
+            transition:.5s;
+        }
+        button:hover{
+            color:lightskyblue;
+            border-radius:5px;
+            transition:.5s;
+        }
+        .alphabet-filter{
+            letter-spacing: 2px;
+        }
+        .navbar{
+            height:80px;
+        }
+        .navbar button{
+            font-weight:normal;
+            letter-spacing: 4px;
+            font-size:20px;
+            font-family:Forum;
+        }
+        a{
+            text-decoration: none;
+            color:rgb(25,25,25,.9);
+            font-family:Forum;
+            font-weight:bold;
+        }
+        a:hover{
+            color:lightskyblue;
+            transition:.3s;
+        }
+        .logo{
+            padding-left:0px;
+        }
+        .logo img{
+            width:350px;
+            height:auto;
+            padding-left:10px;
+        }
+        .heading{
+            padding-left:450px;
+            padding-top:100px;
+            letter-spacing:5px;
+            font-weight: bolder;
+            font-size:22px;
+            font-family:Copperplate Gothic;
+            color:rgb(25,25,25,.8);
+            font-family:Bloomsburg;
+        }
+        .navform{
+            padding-left:350px;
+        }
+        .emailform{
+            background:whitesmoke;
+            padding-bottom: 3px;
+        }
+        .register-form {
+            margin-top: 5%;
+            margin-left: 30%;
+            max-width: 400px;
+            padding: 30px;
+            background-color: rgba(255, 255, 255, 0.8);
+            border-radius: 10px;
+            box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.2);
+        }
+        
+        .register-form h1 {
+            font-size: 24px;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        
+        .register-form button[type="submit"] {
+            width: 100%;
+        }
+    </style>
+    <!-- Add Styles -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script> <!-- Add ajax Script to Add User Button -->
+    <link href="https://cdn.jsdelivr.net/gh/gitbrent/bootstrap-switch-button@1.1.0/css/bootstrap-switch-button.min.css" rel="stylesheet"><!-- CDN .css file (bootstrap)-->
+    <script src="https://cdn.jsdelivr.net/gh/gitbrent/bootstrap-switch-button@1.1.0/dist/bootstrap-switch-button.min.js"></script><!-- CDN .js file (bootstrap) -->
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg fixed-top" style="background-color:whitesmoke;">
+        <div class="logo"> 
+            <img src="https://www.elliman.com/localimagereader.ashx?imageurl=%2Fsiteresources%2Fmy%20folder%2Flogo%2Fde_master_logo_rgb%20(1).png&imagecache=true" alt="Douglas Elliman">
+        </div>
+        <div class="home">
+            <button onclick="location.href='{% url 'view' %}'"><b>Home</b></button>
+        </div>
+        <div class="adduser">
+            <button id="adduser" class="adduser"><b>Add User</b></button>
+        </div>
+        <div class="navform">
+        <form method="post" action="{% url 'view' %}" class="d-flex" role="search">
+            {% csrf_token %}
+            <input type="search" name="search" class="form-control me-2" placeholder="Type to Search Name">
+        </form>
+        </div>
+    </nav><!-- Add Naviagtion
+    1.Logo
+    2.Home Button
+    3.Add User
+    4.Search box -->
+    <div class="heading container justify-content-md-center" id="heading">    
+        <p>OUR CUSTOMERS</p>
+    </div><!-- Concept Heading -->
+    <nav class="navbar" id="heading" style="background-color:white;"">
+        <div class="container">
+            {% for i in alpha %}
+            <a href="{% url 'view' %}?filter={{i}}">{{i}}</a>
+            {% endfor %}
+        </div>
+    </nav><!-- Creating Navigation to acnhor tag for alphabets searching function -->
+    <div class="row justify-content-md-center whole"> <!-- Cards container-->
+        {% for i,j,k,x in det %}
+        <div class="card"><!-- Card -->
+            <div class="image-border"><!-- Image -->
+            {% if 'http' in x %} <!-- Check Whether it is Online image founc based on "http" command then it works -->
+                <img src="{{x}}" alt="Online URL {{x}}">
+            {% else %}<!-- or Otherwise Local Images are performs decoded binary values -->
+                <img src="data:image/jpeg;base64,{{i.userprofileimg}}" alt="Binary URL {{i.userprofileimg}}">
+            {% endif %}
+            </div>
+        <div class="details container"> <!-- detail container -->
+            <div class="name container-fluid"> <!-- Broker Name -->
+                <p>{{i.username}}</p>
+            </div>
+            <div class="address container"><!-- Register Tag -->
+                <p>Licensed Associate Real Estate Broker</p>
+            </div>
+            <div class="phone container"><!-- Phone numbers -->
+                <table>
+                    <tr>
+                        <th>O</th>
+                        <th>: </th>
+                        <td>{{j}}</td>
+                    </tr>
+                    <tr>
+                        <th>M</th>
+                        <th>: </th>
+                        <td>{{k}}</td>
+                    </tr>
+                </table>
+            </div>
+            <div class="email container"><!-- Email Container -->
+                <p>{{i.usermail}}</p>
+            </div>
+        </div>
+        </div>
+        {% endfor %}
+    </div>
+    <form method="post" id="register" class="register-form bg-light p-4 rounded"> <!-- Add User Form-->
+        {% csrf_token %}
+        <h1 class="mb-4">Add User</h1>
+        <div class="mb-3">
+            <input type="text" id="name" name="name" class="form-control" required placeholder="Name"><!--Text Field-->
+        </div>
+        <div class="mb-3">
+            <input type="text" id="address" name="address" class="form-control" required placeholder="Address"><!--Text Field-->
+        </div>
+        <div class="mb-3">
+            <input type="email" id="email" name="email" class="form-control" required placeholder="Email"><!--Email Field-->
+        </div>
+        <div class="mb-3">
+            <input type="text" id="num1" name="num1" class="form-control" required placeholder="Primary Number"><!--Text Field-->
+        </div>
+        <div class="mb-3">
+            <input type="text" id="num2" name="num2" class="form-control" required placeholder="Secondary Number"><!--Text Field-->
+        </div>
+        <div class="mb-3">
+            <input type="file" id="image" name="image" class="form-control" required placeholder="Upload Image"><!--File Input Field-->
+        </div>
+        <div class="mb-3">
+            <input type="password" id="password" name="password" class="form-control" required placeholder="Create Password"><!--Password Field-->
+        </div>
+        <div class="mb-3">
+            <input type="password" id="cpassword" name="cpassword" class="form-control" required placeholder="Confirm Password"><!--Password Field-->
+        </div>
+        <button type="submit" id="submit" class="btn btn-primary">Register</button><!-- Form Submit button-->
+    </form>
+    <!-- Scripting to Show/Hide Add User Form -->
+    <script>
+        $(document).ready(function(){
+            $("#register").hide();
+          $("#adduser").click(function(){
+            $(".whole").hide();
+            $("#heading").hide();
+            $("#register").show();
+        });
+        $("#submit").click(function(){
+                $("#register").hide();
+                $(".whole").show();
+                $("#heading").show();
+          });
+    });
+    </script>
+</body>
+</html>
